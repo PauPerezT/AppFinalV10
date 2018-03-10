@@ -40,6 +40,8 @@ public class ActivityLoggin extends AppCompatActivity {
                 String username=data.getStringExtra(ActivityRegistration.intent_User), password=data.getStringExtra("register_pass");
                 etuser.setText(username);
                 etpass.setText(password);
+                // TODO ponerle hint a todos los edittext
+                // hint es una sombra para que no toque borrar "usernam2 "pass"
             }
         }
     }
