@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch ( item.getItemId() ) {
             case R.id.action_profile:
-                Toast.makeText(MainActivity.this, "HOlita bebe", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "Holita bebe", Toast.LENGTH_SHORT).show();
                 return true;
 
             case R.id.action_logout:

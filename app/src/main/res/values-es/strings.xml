@@ -38,6 +38,7 @@
     <string name="empty_fields">Llene los espacios en blanco</string>
     <string name="action_profile">Perfil</string>
     <string name="action_logout">Cerrar sesión</string>
+    <string name="action_principal">Principal</string>
 
 
 </resources>
