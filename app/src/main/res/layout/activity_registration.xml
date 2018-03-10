@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.paulaperez.appfinalv10.MainActivity">
+    tools:context="com.paulaperez.appfinalv10.ActivityRegistration">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -134,9 +134,9 @@
                 android:gravity="center"
                 android:textColor="@android:color/darker_gray"
                 android:backgroundTint="@android:color/holo_blue_dark" />
-<!--
-            android:inputType="numberPassword"
--->
+            <!--
+                        android:inputType="numberPassword"
+            -->
 
         </LinearLayout>
 
@@ -168,9 +168,9 @@
                 android:textColor="@android:color/darker_gray"
                 android:gravity="center"
                 android:backgroundTint="@android:color/holo_blue_dark" />
-<!--
-            android:inputType="numberPassword"
--->
+            <!--
+                        android:inputType="numberPassword"
+            -->
 
         </LinearLayout>
         <LinearLayout
@@ -226,8 +226,6 @@
 
 
 
-
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -239,9 +237,6 @@
             android:id="@+id/main_results_tv"/>
 
     </LinearLayout>
-
-
-
 
 
 </android.support.constraint.ConstraintLayout>

@@ -41,4 +41,6 @@
     <string name="empty_fields">Please fill in the blanks</string>
     <string name="title_activity_loggin">ActivityLoggin</string>
     <string name="action_settings">Settings</string>
+    <string name="action_profile">Profile</string>
+    <string name="action_logout">Logout</string>
 </resources>

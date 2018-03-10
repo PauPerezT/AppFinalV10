@@ -36,6 +36,8 @@
     <string name="etBirthName">Fecha de nacimiento</string>
     <string name="pass_not_equal">Contraseñas no coinciden</string>
     <string name="empty_fields">Llene los espacios en blanco</string>
+    <string name="action_profile">Perfil</string>
+    <string name="action_logout">Cerrar sesión</string>
 
 
 </resources>
