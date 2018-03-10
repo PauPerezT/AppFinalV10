@@ -51,7 +51,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:id="@+id/etUser"
+                android:id="@+id/loggin_etUser"
                 android:gravity="center"
                 android:text="@string/user"
                 android:textColor="@android:color/darker_gray"
@@ -81,7 +81,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:id="@+id/etPass"
+                android:id="@+id/loggin_etPass"
                 android:gravity="center"
                 android:text="@string/pass"
                 android:textColor="@android:color/darker_gray"
@@ -94,13 +94,13 @@
 
 
         <Button
-            android:id="@+id/btLogin"
+            android:id="@+id/loggin_btLogin"
 
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Login"
+            android:text="Loggin"
             android:textAlignment="center"
             android:background="@android:color/black"
             android:textColor="@android:color/white" />
@@ -110,20 +110,17 @@
             android:layout_width="match_parent"
             android:layout_height="18dp"></LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center">
+
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/tvRegister"
+                android:id="@+id/loggin_tvRegister"
                 android:text="Do not register yet? ENTER HERE!!"
                 android:gravity="center"
+                android:layout_gravity="center"
                 android:textColor="@android:color/holo_blue_dark"
                 />
-        </LinearLayout>
 
 
 
