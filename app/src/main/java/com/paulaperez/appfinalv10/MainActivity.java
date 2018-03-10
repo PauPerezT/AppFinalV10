@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -15,11 +16,23 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        return super.onCreateOptionsMenu(menu);
+        getMenuInflater().inflate(R.menu.menu_activity_main, menu);
+        return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        return super.onOptionsItemSelected(item);
+        switch ( item.getItemId() ) {
+            case R.id.action_profile:
+                Toast.makeText(MainActivity.this, "HOlita bebe", Toast.LENGTH_SHORT).show();
+                return true;
+
+            case R.id.action_logout:
+                return true;
+
+            default:
+
+                return super.onOptionsItemSelected(item);
+        }
     }
 }
