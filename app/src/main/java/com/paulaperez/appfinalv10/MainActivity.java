@@ -1,5 +1,6 @@
 package com.paulaperez.appfinalv10;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -8,10 +9,21 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
+    private String username, paswwrod;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Bundle fromLoggin= getIntent().getExtras();
+        if(fromLoggin!=null){
+            username=fromLoggin.getString(ActivityRegistration.intent_User, "");
+            paswwrod=fromLoggin.getString(ActivityRegistration.intent_pass, "");
+            Toast.makeText(MainActivity.this, "me acabaron de mandar:"+username+"-"+paswwrod,Toast.LENGTH_SHORT).show();
+
+        }
     }
 
     @Override

@@ -98,7 +98,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="@string/user"
+                android:hint="@string/user"
                 android:id="@+id/register_etUser"
                 android:textColor="@android:color/darker_gray"
                 android:backgroundTint="@android:color/holo_blue_dark"

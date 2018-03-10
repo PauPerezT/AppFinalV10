@@ -31,6 +31,20 @@ public class ActivityLoggin extends AppCompatActivity {
                 startActivityForResult(i,LOGGINREQUESTCODE);
             }
         });
+
+        btlog.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String username=etuser.getText().toString(), password=etpass.getText().toString();
+                Intent i= new Intent(ActivityLoggin.this, MainActivity.class);
+                i.putExtra(ActivityRegistration.intent_User, username);
+                i.putExtra(ActivityRegistration.intent_pass, password);
+
+
+                startActivity(i);
+                finish();
+            }
+        });
     }
 
     @Override
