@@ -33,4 +33,14 @@ public class ActivityLoggin extends AppCompatActivity {
         });
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if(requestCode==LOGGINREQUESTCODE){
+            if(resultCode==RESULT_OK){
+                String username=data.getStringExtra(ActivityRegistration.intent_User), password=data.getStringExtra("register_pass");
+                etuser.setText(username);
+                etpass.setText(password);
+            }
+        }
+    }
 }

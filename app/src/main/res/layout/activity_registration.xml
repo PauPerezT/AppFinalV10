@@ -70,7 +70,7 @@
                 android:text="@string/name"
                 android:gravity="center"
 
-                android:id="@+id/etUser"
+                android:id="@+id/register_etName"
                 android:textColor="@android:color/darker_gray"
                 android:backgroundTint="@android:color/holo_blue_dark"
                 />
@@ -99,7 +99,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="@string/user"
-                android:id="@+id/etUser"
+                android:id="@+id/register_etUser"
                 android:textColor="@android:color/darker_gray"
                 android:backgroundTint="@android:color/holo_blue_dark"
                 />
@@ -130,7 +130,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="@string/pass"
-                android:id="@+id/etPass"
+                android:id="@+id/register_etPass"
                 android:gravity="center"
                 android:textColor="@android:color/darker_gray"
                 android:backgroundTint="@android:color/holo_blue_dark" />
@@ -164,7 +164,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="@string/passC"
-                android:id="@+id/etPassC"
+                android:id="@+id/register_etPassC"
                 android:textColor="@android:color/darker_gray"
                 android:gravity="center"
                 android:backgroundTint="@android:color/holo_blue_dark" />
@@ -200,7 +200,7 @@
                 android:gravity="center"
                 android:textColor="@android:color/darker_gray"
                 android:backgroundTint="@android:color/holo_blue_dark"
-                android:id="@+id/etEmail"
+                android:id="@+id/register_etEmail"
 
                 />
         </LinearLayout>
@@ -212,7 +212,7 @@
 
 
         <Button
-            android:id="@+id/btLogin"
+            android:id="@+id/register_btRegister"
 
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="wrap_content"
