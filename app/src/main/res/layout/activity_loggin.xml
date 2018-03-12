@@ -53,7 +53,7 @@
                 android:layout_weight="1"
                 android:id="@+id/loggin_etUser"
                 android:gravity="center"
-                android:text="@string/user"
+                android:hint="@string/user"
                 android:textColor="@android:color/darker_gray"
 
                 android:backgroundTint="@android:color/holo_blue_dark"
@@ -83,7 +83,7 @@
                 android:layout_weight="1"
                 android:id="@+id/loggin_etPass"
                 android:gravity="center"
-                android:text="@string/pass"
+                android:hint="@string/pass"
                 android:textColor="@android:color/darker_gray"
                 android:backgroundTint="@android:color/holo_blue_dark"                />                />
             <!--

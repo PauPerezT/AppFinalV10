@@ -1,5 +1,6 @@
 package com.paulaperez.appfinalv10;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -37,9 +38,17 @@ public class MainActivity extends AppCompatActivity {
         switch ( item.getItemId() ) {
             case R.id.action_profile:
                 Toast.makeText(MainActivity.this, "Holita bebe", Toast.LENGTH_SHORT).show();
+                Intent i= new Intent(MainActivity.this, ActivityProfile.class);
+                startActivity(i);
+                finish();
+
                 return true;
 
             case R.id.action_logout:
+
+                Intent log= new Intent(MainActivity.this, ActivityLoggin.class);
+                startActivity(log);
+                finish();
                 return true;
 
             default:

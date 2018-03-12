@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.paulaperez.appfinalv10.ActivityProfile">
     <item
-        android:id="@+id/action_profile"
+        android:id="@+id/action_principal"
         android:orderInCategory="100"
         android:title="@string/action_principal"
         app:showAsAction="never"

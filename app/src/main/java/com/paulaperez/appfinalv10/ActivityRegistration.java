@@ -62,8 +62,9 @@ public class ActivityRegistration extends AppCompatActivity {
 
                         // TODO las contraseñas no son iguales
                     }
-                }else{
+                }else if(!fieldsFull()){
                     // TODO hay algun campo vacio
+                    fieldsFull();
                 }
 
             }
