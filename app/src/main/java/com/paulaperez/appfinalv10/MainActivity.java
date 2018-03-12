@@ -10,7 +10,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    private String username, paswwrod;
+    private String username, password, name, email;
 
 
     @Override
@@ -21,8 +21,10 @@ public class MainActivity extends AppCompatActivity {
         Bundle fromLoggin= getIntent().getExtras();
         if(fromLoggin!=null){
             username=fromLoggin.getString(ActivityRegistration.intent_User, "");
-            paswwrod=fromLoggin.getString(ActivityRegistration.intent_pass, "");
-            Toast.makeText(MainActivity.this, "me acabaron de mandar:"+username+"-"+paswwrod,Toast.LENGTH_SHORT).show();
+            password=fromLoggin.getString(ActivityRegistration.intent_pass, "");
+            name=fromLoggin.getString(ActivityRegistration.intent_Name, "");
+            email=fromLoggin.getString(ActivityRegistration.intent_Email, "");
+            //Toast.makeText(MainActivity.this, "me acabaron de mandar:"+name+"-"+password,Toast.LENGTH_SHORT).show();
 
         }
     }
@@ -37,8 +39,13 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch ( item.getItemId() ) {
             case R.id.action_profile:
-                Toast.makeText(MainActivity.this, "Holita bebe", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(MainActivity.this, "Holita bebe", Toast.LENGTH_SHORT).show();
                 Intent i= new Intent(MainActivity.this, ActivityProfile.class);
+                i.putExtra(ActivityRegistration.intent_User, username);
+                i.putExtra(ActivityRegistration.intent_pass, password);
+                i.putExtra(ActivityRegistration.intent_Name, name);
+                i.putExtra(ActivityRegistration.intent_Email, email);
+
                 startActivity(i);
                 finish();
 
