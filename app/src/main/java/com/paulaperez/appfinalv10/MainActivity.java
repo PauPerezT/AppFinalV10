@@ -70,4 +70,13 @@ public class MainActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
+    //TODO cuando se devuelve la app de principal a loggin se borran los datos retornarlos tambien, lo mismo en el profile
+
+    @Override
+    public void onBackPressed() {
+        Intent logginReturn= new Intent(MainActivity.this, ActivityLoggin.class);
+
+        startActivity(logginReturn);
+        finish();
+    }
 }
