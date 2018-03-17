@@ -76,6 +76,9 @@ public class ActivityProfile extends AppCompatActivity {
 
                 return super.onOptionsItemSelected(item);
         }
+
+        //TODO arreglar la ida hacia atras, que de profile vaya a principal
+
     }
 
     private void printResults(){

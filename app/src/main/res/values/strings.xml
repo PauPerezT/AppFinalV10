@@ -44,4 +44,9 @@
     <string name="action_profile">Profile</string>
     <string name="action_logout">Logout</string>
     <string name="action_principal">Principal</string>
+    <string name="wrongData">Wrong user or password</string>
+    <string name="AppData">PKapp, is an app that help you to the Parkinson\'s disease monitoring by means of bio-signals such as speech signals and signals from motor movements.</string>
+
+
+
 </resources>

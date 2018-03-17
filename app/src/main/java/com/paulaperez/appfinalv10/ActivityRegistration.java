@@ -13,7 +13,7 @@ import android.widget.Toast;
 public class ActivityRegistration extends AppCompatActivity {
     private EditText etname, etuser, etpass, etpassC, etmail;
     private Button btreg;
-    public static final String intent_User="register_user", intent_pass="register_pass";
+    public static final String intent_User="register_user", intent_pass="register_pass", intent_Name="register_name", intent_Email="register_email";
     private String username, password;
     private String passwordC, name, email;
 
@@ -48,6 +48,8 @@ public class ActivityRegistration extends AppCompatActivity {
                         Intent returnIntent = new Intent();
                         returnIntent.putExtra(intent_User,username);
                         returnIntent.putExtra(intent_pass, password);
+                        returnIntent.putExtra(intent_Name, name);
+                        returnIntent.putExtra(intent_Email, email);
                         setResult(Activity.RESULT_OK,returnIntent);
                         finish();
 
@@ -60,20 +62,19 @@ public class ActivityRegistration extends AppCompatActivity {
                         Toast.makeText(ActivityRegistration.this,getString(R.string.pass_not_equal),Toast.LENGTH_LONG).show();
                         etpassC.setError( getString(R.string.pass_not_equal) );
 
-                        // TODO las contraseñas no son iguales
+
                     }
                 }else if(!fieldsFull()){
-                    // TODO hay algun campo vacio
+
                     fieldsFull();
                 }
 
             }
         });
-
     }
 
     private boolean fieldsFull(){
-        // TODO
+
         if( username.isEmpty() || password.isEmpty() || passwordC.isEmpty() || email.isEmpty() ){
             Toast.makeText(ActivityRegistration.this, getText(R.string.empty_fields), Toast.LENGTH_LONG ).show();
             return false;

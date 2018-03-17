@@ -39,6 +39,10 @@
     <string name="action_profile">Perfil</string>
     <string name="action_logout">Cerrar sesión</string>
     <string name="action_principal">Principal</string>
+    <string name="wrongData">Usuario o contraseña erroneas</string>
+    <string name="AppData">PKapp, es una aplicacion que le ayudara al monitoreo de la enfermedad de Parkinson, por medio de bio-señales como lo son señales de voz y señales provenientes del movimiento motor.</string>
+
+
 
 
 </resources>

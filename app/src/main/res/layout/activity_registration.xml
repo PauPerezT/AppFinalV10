@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -9,7 +9,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="@drawable/fondoopt">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -21,9 +22,9 @@
             android:gravity="center">
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/gita"/>
+                android:layout_width="80dp"
+                android:layout_height="120dp"
+                android:background="@drawable/logo_opt"/>
         </LinearLayout>
 
 
@@ -40,7 +41,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/Registration"
                 android:textSize="30dp"
-                android:textColor="@android:color/black"
+                android:textColor="@android:color/white"
                 android:textAlignment="center"/>
         </LinearLayout>
 
@@ -71,7 +72,6 @@
                 android:gravity="center"
 
                 android:id="@+id/register_etName"
-                android:textColor="@android:color/darker_gray"
                 android:backgroundTint="@android:color/holo_blue_dark"
                 />
         </LinearLayout>
@@ -100,7 +100,6 @@
                 android:gravity="center"
                 android:hint="@string/user"
                 android:id="@+id/register_etUser"
-                android:textColor="@android:color/darker_gray"
                 android:backgroundTint="@android:color/holo_blue_dark"
                 />
         </LinearLayout>
@@ -132,7 +131,6 @@
                 android:hint="@string/pass"
                 android:id="@+id/register_etPass"
                 android:gravity="center"
-                android:textColor="@android:color/darker_gray"
                 android:backgroundTint="@android:color/holo_blue_dark" />
             <!--
                         android:inputType="numberPassword"
@@ -165,7 +163,6 @@
                 android:layout_weight="1"
                 android:hint="@string/passC"
                 android:id="@+id/register_etPassC"
-                android:textColor="@android:color/darker_gray"
                 android:gravity="center"
                 android:backgroundTint="@android:color/holo_blue_dark" />
             <!--
@@ -198,7 +195,6 @@
                 android:layout_weight="1"
                 android:hint="@string/email"
                 android:gravity="center"
-                android:textColor="@android:color/darker_gray"
                 android:backgroundTint="@android:color/holo_blue_dark"
                 android:id="@+id/register_etEmail"
 
@@ -239,4 +235,4 @@
     </LinearLayout>
 
 
-</android.support.constraint.ConstraintLayout>
+</ScrollView>

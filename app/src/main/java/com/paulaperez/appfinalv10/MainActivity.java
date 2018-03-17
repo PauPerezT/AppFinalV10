@@ -25,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
             name=fromLoggin.getString(ActivityRegistration.intent_Name, "");
             email=fromLoggin.getString(ActivityRegistration.intent_Email, "");
             //Toast.makeText(MainActivity.this, "me acabaron de mandar:"+name+"-"+password,Toast.LENGTH_SHORT).show();
+//TODO informacion de mi app
+//TODO arreglar la ida hacia atras, que de principal vaya a loggin
 
         }
     }
@@ -54,6 +56,11 @@ public class MainActivity extends AppCompatActivity {
             case R.id.action_logout:
 
                 Intent log= new Intent(MainActivity.this, ActivityLoggin.class);
+                log.putExtra(ActivityRegistration.intent_User, username);
+                log.putExtra(ActivityRegistration.intent_pass, password);
+                log.putExtra(ActivityRegistration.intent_Name, name);
+                log.putExtra(ActivityRegistration.intent_Email, email);
+
                 startActivity(log);
                 finish();
                 return true;

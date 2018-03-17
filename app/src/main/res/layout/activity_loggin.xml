@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -10,12 +10,14 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="@drawable/fondoopt">
 
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="15dp"></LinearLayout>
+            android:layout_height="15dp"
+            ></LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -23,9 +25,9 @@
             android:gravity="center">
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/gita"/>
+                android:layout_width="80dp"
+                android:layout_height="120dp"
+                android:background="@drawable/logo3"/>
 
         </LinearLayout>
 
@@ -54,7 +56,7 @@
                 android:id="@+id/loggin_etUser"
                 android:gravity="center"
                 android:hint="@string/user"
-                android:textColor="@android:color/darker_gray"
+
 
                 android:backgroundTint="@android:color/holo_blue_dark"
                 />
@@ -84,7 +86,6 @@
                 android:id="@+id/loggin_etPass"
                 android:gravity="center"
                 android:hint="@string/pass"
-                android:textColor="@android:color/darker_gray"
                 android:backgroundTint="@android:color/holo_blue_dark"                />                />
             <!--
                             android:inputType="numberPassword"
@@ -119,7 +120,7 @@
                 android:text="Do not register yet? ENTER HERE!!"
                 android:gravity="center"
                 android:layout_gravity="center"
-                android:textColor="@android:color/holo_blue_dark"
+                android:textColor="@android:color/white"
                 />
 
 
@@ -137,4 +138,4 @@
     </LinearLayout>
 
 
-</android.support.constraint.ConstraintLayout>
+</ScrollView>
