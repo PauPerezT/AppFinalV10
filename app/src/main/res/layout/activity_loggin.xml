@@ -56,6 +56,7 @@
                 android:id="@+id/loggin_etUser"
                 android:gravity="center"
                 android:hint="@string/user"
+                android:textColor="@android:color/white"
 
 
                 android:backgroundTint="@android:color/holo_blue_dark"
@@ -86,6 +87,9 @@
                 android:id="@+id/loggin_etPass"
                 android:gravity="center"
                 android:hint="@string/pass"
+                android:inputType="textPassword"
+                android:textColor="@android:color/white"
+
                 android:backgroundTint="@android:color/holo_blue_dark"                />                />
             <!--
                             android:inputType="numberPassword"
@@ -117,11 +121,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/loggin_tvRegister"
-                android:text="Do not register yet? ENTER HERE!!"
+                android:text="@string/withoutReg"
                 android:gravity="center"
                 android:layout_gravity="center"
                 android:textColor="@android:color/white"
-                />
+                android:textColorLink="@android:color/white"
+
+        />
 
 
 
