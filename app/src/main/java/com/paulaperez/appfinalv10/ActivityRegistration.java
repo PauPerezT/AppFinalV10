@@ -2,13 +2,21 @@ package com.paulaperez.appfinalv10;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class ActivityRegistration extends AppCompatActivity {
     private EditText etname, etuser, etpass, etpassC, etmail;
@@ -16,6 +24,8 @@ public class ActivityRegistration extends AppCompatActivity {
     public static final String intent_User="register_user", intent_pass="register_pass", intent_Name="register_name", intent_Email="register_email";
     private String username, password;
     private String passwordC, name, email;
+    private FirebaseAuth firebaseAuth;
+    private FirebaseAuth.AuthStateListener authStateListener;
 
 
 
@@ -24,6 +34,7 @@ public class ActivityRegistration extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
+        inicializar();
 
         etname=(EditText)findViewById(R.id.register_etName);
         etuser=(EditText)findViewById(R.id.register_etUser);
@@ -42,8 +53,12 @@ public class ActivityRegistration extends AppCompatActivity {
                  passwordC=etpassC.getText().toString();
                  name=etname.getText().toString();
                  email=etmail.getText().toString();
+
+
                 if( fieldsFull() ){
                     if( comparePasswords( password, passwordC) && fieldsFull() ){
+
+                        newAccount(email,password);
 
                         Intent returnIntent = new Intent();
                         returnIntent.putExtra(intent_User,username);
@@ -88,4 +103,36 @@ public class ActivityRegistration extends AppCompatActivity {
     private boolean comparePasswords(String pass, String passC){
         return pass.equals(passC);
     }
+
+    private void inicializar(){
+        firebaseAuth= FirebaseAuth.getInstance();
+        authStateListener= new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser firebaseUser= firebaseAuth.getCurrentUser();
+                if (firebaseUser!= null){
+                    Log.d("FirebaseUser", "Usuario Logueado"+ firebaseUser.getEmail());
+
+                }else {
+                    Log.d("FirebaseUser", "No hay usuario logueado");
+
+                }
+            }
+        };
+    }
+
+ public void newAccount(String newEmail, String newPass){
+       firebaseAuth.createUserWithEmailAndPassword(newEmail,newPass).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+           @Override
+           public void onComplete(@NonNull Task<AuthResult> task) {
+               if(task.isSuccessful()){
+                   Toast.makeText(ActivityRegistration.this, "Congrats, You have an account", Toast.LENGTH_SHORT).show();
+               }else {
+                   Toast.makeText(ActivityRegistration.this, "Error in the account creation", Toast.LENGTH_SHORT).show();
+
+               }
+           }
+       });
+
+ }
 }
