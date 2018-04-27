@@ -1,7 +1,10 @@
 package com.paulaperez.appfinalv10;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,13 +15,20 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.facebook.login.LoginManager;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
+import com.google.firebase.auth.FirebaseAuthUserCollisionException;
+import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
 import com.google.firebase.auth.FirebaseUser;
 
-public class ActivityRegistration extends AppCompatActivity {
+public class ActivityRegistration extends AppCompatActivity
+        {
     private EditText etname, etuser, etpass, etpassC, etmail;
     private Button btreg;
     public static final String intent_User="register_user", intent_pass="register_pass", intent_Name="register_name", intent_Email="register_email";
@@ -56,19 +66,25 @@ public class ActivityRegistration extends AppCompatActivity {
 
 
                 if( fieldsFull() ){
-                    if( comparePasswords( password, passwordC) && fieldsFull() ){
-
+                    if( comparePasswords( password, passwordC) && fieldsFull() && passCorrectLength() ){
+                        username=etuser.getText().toString();
+                        password=etpass.getText().toString();
+                        passwordC=etpassC.getText().toString();
+                        name=etname.getText().toString();
+                        email=etmail.getText().toString();
                         newAccount(email,password);
 
-                        Intent returnIntent = new Intent();
-                        returnIntent.putExtra(intent_User,username);
+                        Intent returnIntent = new Intent(ActivityRegistration.this,ActivityLoggin.class);
+                        /*returnIntent.putExtra(intent_User,username);
                         returnIntent.putExtra(intent_pass, password);
                         returnIntent.putExtra(intent_Name, name);
-                        returnIntent.putExtra(intent_Email, email);
-                        setResult(Activity.RESULT_OK,returnIntent);
+                        returnIntent.putExtra(intent_Email, email);*/
+                        //setResult(Activity.RESULT_OK,returnIntent);
+                        startActivity(returnIntent);
                         finish();
 
                         etpassC.setError( null);
+                        etpass.setError( null);
 
 
 
@@ -82,7 +98,12 @@ public class ActivityRegistration extends AppCompatActivity {
                 }else if(!fieldsFull()){
 
                     fieldsFull();
+                }else if(!passCorrectLength()){
+
+                    passCorrectLength();
+
                 }
+
 
             }
         });
@@ -97,6 +118,16 @@ public class ActivityRegistration extends AppCompatActivity {
         return true;
 
     }
+
+            private boolean passCorrectLength(){
+
+                if(  password.length()<6 ){
+                    etpass.setError("La contraseña debe contener minimo 6 digitos") ;
+                    return false;
+                }
+                return true;
+
+            }
 
 
 
@@ -128,11 +159,50 @@ public class ActivityRegistration extends AppCompatActivity {
                if(task.isSuccessful()){
                    Toast.makeText(ActivityRegistration.this, "Congrats, You have an account", Toast.LENGTH_SHORT).show();
                }else {
-                   Toast.makeText(ActivityRegistration.this, "Error in the account creation", Toast.LENGTH_SHORT).show();
+
+                   //Toast.makeText(ActivityRegistration.this, "Error in the account creation", Toast.LENGTH_SHORT).show();
+
+                   if(internetConnection()) {
+
+                       try {
+                           throw task.getException();
+                       }  catch (FirebaseAuthInvalidCredentialsException e) {
+                           Toast.makeText(ActivityRegistration.this, "Correo invalido", Toast.LENGTH_LONG).show();
+                       } catch (FirebaseAuthUserCollisionException e) {
+                           Toast.makeText(ActivityRegistration.this, "El usuario ya existe", Toast.LENGTH_LONG).show();
+                           LoginManager.getInstance().logOut();
+                       } catch (Exception e) {
+
+                       }
+                   }else{
+                       Toast.makeText(ActivityRegistration.this, "No hay acceso a internet, no se cargaran los datos", Toast.LENGTH_LONG).show();
+
+                   }
 
                }
            }
        });
 
  }
+
+
+ ////Internet connection
+ private boolean internetConnection() {
+
+     ConnectivityManager connectivityManager = (ConnectivityManager)
+             getSystemService(Context.CONNECTIVITY_SERVICE);
+
+     NetworkInfo actNetInfo;
+     actNetInfo = connectivityManager.getActiveNetworkInfo();
+
+     return (actNetInfo != null && actNetInfo.isConnected());
+ }
+
+            @Override
+            public void onBackPressed() {
+                Intent principalReturn= new Intent(ActivityRegistration.this, ActivityLoggin.class);
+
+                startActivity(principalReturn);
+                finish();
+            }
 }
